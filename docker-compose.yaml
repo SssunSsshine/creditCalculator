@@ -1,13 +1,13 @@
 version: '3'
 
 services:
-  postgres:
+  db:
     image: 'postgres:16.2-alpine3.19'
-    container_name: 'java-postgres'
+    container_name: 'db'
     ports:
-      - '5432:5432'
+      - '5000:5432'
     environment:
-      - 'POSTGRES_USER=admin'
-      - 'POSTGRES_PASSWORD=root'
-      - 'POSTGRES_HOST_AUTH_METHOD=trust'
-      - 'POSTGRES_DB=java'
+      - 'POSTGRES_USER=postgres'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_HOST_AUTH_METHOD=md5'
+      - 'POSTGRES_DB=creditCalculator'
