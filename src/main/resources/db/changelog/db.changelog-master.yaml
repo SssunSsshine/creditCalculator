@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
+  - changeSet:
+      id: 1
+      author: sssunssshine
+      changes:
+        - createTable:
+          tableName: client
+          columns:
+            - column:
+              name: client_id
+              type: BIGINT
+              autoInncrement: true
+              constraints:
+                primaryKey: true
+                nullable: false
+            - column:
+
