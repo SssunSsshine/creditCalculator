@@ -1,18 +1,247 @@
 databaseChangeLog:
-  - logicalFilePath: db/changelog/db.changelog-lesson1.yaml
   - changeSet:
       id: 1
       author: sssunssshine
       changes:
         - createTable:
-          tableName: client
-          columns:
-            - column:
-              name: client_id
-              type: BIGINT
-              autoInncrement: true
-              constraints:
-                primaryKey: true
-                nullable: false
-            - column:
-
+            tableName: passport
+            columns:
+              - column:
+                  name: passport_id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: series
+                  type: varchar(4)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: number
+                  type: varchar(6)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: issue_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: issue_place
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: work
+            columns:
+              - column:
+                  name: work_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: is_working
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: work_address
+                  type: varchar(300)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: seniority
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: total_seniority
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: salary
+                  type: decimal
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: contacts
+            columns:
+              - column:
+                  name: contacts_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: phone_number
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: address
+                  type: varchar(300)
+                  constraints:
+                    nullable: false
+                    unique: true
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: client_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: passport_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_client_passport
+                    references: passport(passport_id)
+                    nullable: false
+              - column:
+                  name: work_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_client_work
+                    references: work(work_id)
+                    nullable: false
+              - column:
+                  name: contacts_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_client_contacts
+                    references: contacts(contacts_id)
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: patronymic
+                  type: varchar(100)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: birth_date
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: gender
+                  type: varchar(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_married
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: has_kids
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dependency_amount
+                  type: int
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: loan_application
+            columns:
+              - column:
+                  name: application_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: client_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_loanApplication_Client
+                    references: client(client_id)
+                    nullable: false
+              - column:
+                  name: credit_amount
+                  type: decimal
+                  constraints:
+                    nullable: false
+              - column:
+                  name: term
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: date_applied
+                  type: datetime
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: loan_decision
+            columns:
+              - column:
+                  name: decision_id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: application_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_loanDecision_loanApplication
+                    references: loan_application(application_id)
+                    nullable: false
+              - column:
+                  name: success
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: reason
+                  type: varchar(300)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: full_amount
+                  type: decimal
+                  constraints:
+                    nullable: true
+              - column:
+                  name: rate
+                  type: int
+                  constraints:
+                    nullable: true
+              - column:
+                  name: monthly_payment
+                  type: decimal
+                  constraints:
+                    nullable: true
+        - addUniqueConstraint:
+            constraintName: unique_constraint_passport_series_number
+            tableName: passport
+            columnNames: series, number
