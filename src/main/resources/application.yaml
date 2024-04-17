@@ -4,7 +4,7 @@ server:
 spring:
   datasource:
     driverClassName: org.postgresql.Driver
-    url: 'jdbc:postgresql://db:5432/creditCalculator'
+    url: 'jdbc:postgresql://localhost:5433/creditCalculator'
     username: postgres
     password: postgres
 

@@ -168,7 +168,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - createTable:
-            tableName: loanApplication
+            tableName: loan_application
             columns:
               - column:
                   name: application_id
@@ -200,7 +200,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
         - createTable:
-            tableName: loanDecision
+            tableName: loan_decision
             columns:
               - column:
                   name: decision_id
@@ -214,7 +214,7 @@ databaseChangeLog:
                   type: BIGINT
                   constraints:
                     foreignKeyName: fk_loanDecision_loanApplication
-                    references: loanApplication(application_id)
+                    references: loan_application(application_id)
                     nullable: false
               - column:
                   name: success
@@ -241,3 +241,7 @@ databaseChangeLog:
                   type: decimal
                   constraints:
                     nullable: true
+        - addUniqueConstraint:
+            constraintName: unique_constraint_passport_series_number
+            tableName: passport
+            columnNames: series, number
