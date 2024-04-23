@@ -8,26 +8,31 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "Work")
 public class Work {
     @Id
     @GeneratedValue
-    public Long id;
+    @NotNull
+    private Long id;
 
     @Column(name = "is_working")
-    public boolean is_working;
+    @NotNull
+    private Boolean isWorking;
 
     @Column(name = "work_address")
-    public String work_address;
+    private String workAddress;
 
     @Column(name = "seniority")
-    public int seniority;
+    private Integer seniority;
 
     @Column(name = "total_seniority")
-    public int total_seniority;
+    @NotNull
+    private Integer totalSeniority;
 
     @Column(name = "salary")
-    public BigDecimal salary;
+    @NotNull
+    private BigDecimal salary;
 }

@@ -5,21 +5,26 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "Contacts")
 public class Contacts {
     @Id
     @GeneratedValue
-    public Long id;
+    @NotNull
+    private Long id;
 
-    @Column (name = "email")
-    public String email;
+    @Column (name = "email", unique = true)
+    @NotNull
+    private String email;
 
-    @Column (name = "phone_number")
-    public String phone_number;
+    @Column (name = "phone_number", unique = true)
+    @NotNull
+    private String phoneNumber;
 
     @Column (name = "address")
-    public String address;
+    @NotNull
+    private String address;
 
 }

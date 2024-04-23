@@ -7,23 +7,29 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table (name = "Passport")
 public class Passport {
     @Id
     @GeneratedValue
-    public Long id;
+    @NotNull
+    private Long id;
 
     @Column(name = "series")
-    public String series;
+    @NotNull
+    private String series;
 
     @Column(name = "number")
-    public String number;
+    @NotNull
+    private String number;
 
     @Column(name = "issue_date")
-    public LocalDate issue_date;
+    @NotNull
+    private LocalDate issueDate;
 
     @Column(name = "issue_place")
-    public String issue_place;
+    @NotNull
+    private String issuePlace;
 }

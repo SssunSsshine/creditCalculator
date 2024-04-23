@@ -11,6 +11,7 @@ import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @Data
@@ -19,38 +20,49 @@ import javax.persistence.Id;
 public class Client {
     @Id
     @GeneratedValue
-    public Long id;
+    @NotNull
+    private Long id;
 
     @Column (name = "passport_id")
-    public long passport_id;
+    @NotNull
+    private Long passportId;
 
     @Column (name = "work_id")
-    public long work_id;
+    @NotNull
+    private Long workId;
 
     @Column (name = "contact_id")
-    public long contact_id;
+    @NotNull
+    private Long contactId;
 
     @Column (name = "name")
-    public String name;
+    @NotNull
+    private String name;
 
     @Column (name = "surname")
-    public String surname;
+    @NotNull
+    private String surname;
 
     @Column (name = "patronymic")
-    public String patronymic;
+    private String patronymic;
 
     @Column (name = "birth_date")
-    public LocalDate birth_date;
+    @NotNull
+    private LocalDate birthDate;
 
     @Column (name = "gender")
-    public String gender;
+    @NotNull
+    private String gender;
 
     @Column (name = "is_married")
-    public boolean is_married;
+    @NotNull
+    private Boolean isMarried;
 
     @Column (name = "has_kids")
-    public boolean has_kids;
+    @NotNull
+    private Boolean hasKids;
 
     @Column (name = "dependency_amount")
-    public int dependency_amount;
+    @NotNull
+    private Integer dependencyAmount;
 }
