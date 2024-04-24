@@ -5,12 +5,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
@@ -20,20 +17,24 @@ import javax.validation.constraints.NotNull;
 public class Client {
     @Id
     @GeneratedValue
+    @Column(name = "client_id")
     @NotNull
     private Long id;
 
-    @Column (name = "passport_id")
+    @OneToOne
+    @JoinColumn(name = "passport_id", referencedColumnName = "passport_id")
     @NotNull
-    private Long passportId;
+    private Passport passport;
 
-    @Column (name = "work_id")
+    @OneToOne
+    @JoinColumn(name = "work_id", referencedColumnName = "work_id")
     @NotNull
-    private Long workId;
+    private Work work;
 
-    @Column (name = "contact_id")
+    @OneToOne
+    @JoinColumn(name = "contacts_id", referencedColumnName = "contacts_id")
     @NotNull
-    private Long contactId;
+    private Contacts contacts;
 
     @Column (name = "name")
     @NotNull
@@ -65,4 +66,7 @@ public class Client {
     @Column (name = "dependency_amount")
     @NotNull
     private Integer dependencyAmount;
+
+    @OneToMany(mappedBy = "client")
+    private List<LoanApplication> loanApplications;
 }

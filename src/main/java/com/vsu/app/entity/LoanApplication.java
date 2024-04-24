@@ -1,5 +1,8 @@
 package com.vsu.app.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -7,11 +10,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.math.BigDecimal;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table (name = "LoanApplication")
 public class LoanApplication {
     @Id
     @GeneratedValue
+    @Column(name = "application_id")
     @NotNull
     private Long id;
 

@@ -1,25 +1,28 @@
 package com.vsu.app.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table (name = "LoanDecision")
 public class LoanDecision {
     @Id
     @GeneratedValue
+    @Column(name = "decision_id")
     @NotNull
     public Long id;
 
-    @Column(name = "application_id")
+    @OneToOne
+    @JoinColumn(name = "application_id", referencedColumnName = "application_id")
     @NotNull
-    private Long applicationId;
+    private LoanApplication loanApplication;
 
     @Column(name = "success")
     @NotNull

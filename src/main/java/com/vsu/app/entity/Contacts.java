@@ -1,17 +1,19 @@
 package com.vsu.app.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table (name = "Contacts")
 public class Contacts {
     @Id
     @GeneratedValue
+    @Column(name = "contacts_id")
     @NotNull
     private Long id;
 
@@ -26,5 +28,4 @@ public class Contacts {
     @Column (name = "address")
     @NotNull
     private String address;
-
 }

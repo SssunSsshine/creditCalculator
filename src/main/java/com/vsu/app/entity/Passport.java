@@ -1,5 +1,8 @@
 package com.vsu.app.entity;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -9,11 +12,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
+@NoArgsConstructor
+@Data
 @Entity
 @Table (name = "Passport")
 public class Passport {
     @Id
     @GeneratedValue
+    @Column(name = "passport_id")
     @NotNull
     private Long id;
 
