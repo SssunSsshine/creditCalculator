@@ -6,7 +6,15 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
@@ -36,11 +44,11 @@ public class Client {
     private Contacts contacts;
 
     @Column (name = "name")
-    @NotNull
+    @NotBlank(message = "Name is mandatory")
     private String name;
 
     @Column (name = "surname")
-    @NotNull
+    @NotBlank(message = "Surname is mandatory")
     private String surname;
 
     @Column (name = "patronymic")
@@ -51,7 +59,7 @@ public class Client {
     private LocalDate birthDate;
 
     @Column (name = "gender")
-    @NotNull
+    @NotBlank(message = "Gender is mandatory")
     private String gender;
 
     @Column (name = "is_married")
