@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.math.BigDecimal;
 
 @NoArgsConstructor
@@ -40,5 +40,5 @@ public class LoanApplication {
 
     @Column (name = "date_applied")
     @NotNull
-    private LocalDateTime dateApplied;
+    private Timestamp dateApplied;
 }

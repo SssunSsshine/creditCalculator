@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @NoArgsConstructor
 @Data
@@ -25,10 +26,12 @@ public class Passport {
 
     @Column(name = "series")
     @NotNull
+    @Size(min = 4, max = 4, message = "Series must be exactly 4 characters long")
     private String series;
 
     @Column(name = "number")
     @NotNull
+    @Size(min = 6, max = 6, message = "Passport number must be exactly 6 characters long")
     private String number;
 
     @Column(name = "issue_date")
