@@ -1,0 +1,524 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Кредитный калькулятор",
+    "version": "0.0.1",
+    "description": "Cпецификация OpenAPI"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8081/api/v1/",
+      "description": "Dev server"
+    }
+  ],
+  "paths": {
+    "/clients": {
+      "post": {
+        "summary": "Метод создания клиента",
+        "tags": [
+          "Clients"
+        ],
+        "operationId": "createClient",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/contacts": {
+      "post": {
+        "summary": "Метод создания контактов клиента",
+        "tags": [
+          "Contacts"
+        ],
+        "operationId": "createContacts",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Contacts"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Contacts"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/work": {
+      "post": {
+        "summary": "Метод создания работы клиента",
+        "tags": [
+          "Work"
+        ],
+        "operationId": "createWork",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Work"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Work"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/passport": {
+      "post": {
+        "summary": "Метод создания паспорта клиента",
+        "tags": [
+          "Passport"
+        ],
+        "operationId": "createPassport",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Passport"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Passport"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/loanapplication": {
+      "post": {
+        "summary": "Метод создания заявки на кредит",
+        "tags": [
+          "LoanApplication"
+        ],
+        "operationId": "createLoanApplication",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanApplication"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanApplication"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/loandecision": {
+      "post": {
+        "summary": "Метод создания решения по кредиту",
+        "tags": [
+          "LoadDecision"
+        ],
+        "operationId": "createLoanDecision",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoanDecision"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoanDecision"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Пустой ответ"
+          },
+          "default": {
+            "description": "Всё нестандартное",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Error": {
+        "type": "object",
+        "required": [
+          "code",
+          "name"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "Client": {
+        "type": "object",
+        "required": [
+          "client_id",
+          "passport_id",
+          "work_id",
+          "contact_id",
+          "name",
+          "surname",
+          "birth_date",
+          "gender",
+          "is_married",
+          "has_kids",
+          "dependency_amount"
+        ],
+        "properties": {
+          "client_id": {
+            "type": "integer",
+            "example": 111000
+          },
+          "passport_id": {
+            "type": "integer",
+            "example": 122010
+          },
+          "work_id": {
+            "type": "integer",
+            "example": 131000
+          },
+          "contact_id": {
+            "type": "integer",
+            "example": 111543
+          },
+          "name": {
+            "type": "string",
+            "example": "Иванов"
+          },
+          "surname": {
+            "type": "string",
+            "example": "Иван"
+          },
+          "patronymic": {
+            "type": "string",
+            "example": "Иванович"
+          },
+          "birth_date": {
+            "type": "string",
+            "format": "2024-04-01T15"
+          },
+          "gender": {
+            "type": "string",
+            "example": "мужской"
+          },
+          "is_married": {
+            "type": "boolean"
+          },
+          "has_kids": {
+            "type": "boolean"
+          },
+          "dependency_amount": {
+            "type": "integer"
+          }
+        }
+      },
+      "Contacts": {
+        "type": "object",
+        "required": [
+          "contacts_id",
+          "email",
+          "phone_number",
+          "address"
+        ],
+        "properties": {
+          "contacts_id": {
+            "type": "integer",
+            "example": 111000
+          },
+          "email": {
+            "type": "string",
+            "example": "ivanov19@yandex.ru"
+          },
+          "phone_number": {
+            "type": "string",
+            "example": 79502223344
+          },
+          "address": {
+            "type": "string",
+            "example": "г. Иваново, улица Ленина, д. 12, кв. 58"
+          }
+        }
+      },
+      "Work": {
+        "type": "object",
+        "required": [
+          "work_id",
+          "is_working",
+          "total_seniority",
+          "salary"
+        ],
+        "properties": {
+          "work_id": {
+            "type": "integer",
+            "example": 131000
+          },
+          "is_working": {
+            "type": "boolean",
+            "example": true
+          },
+          "work_address": {
+            "type": "string",
+            "example": "г. Иваново, улица Плюшкина, д. 15"
+          },
+          "seniority": {
+            "type": "integer",
+            "example": 15
+          },
+          "total_seniority": {
+            "type": "integer",
+            "example": 17
+          },
+          "salary": {
+            "type": "number",
+            "example": 30000
+          }
+        }
+      },
+      "Passport": {
+        "type": "object",
+        "required": [
+          "passport_id",
+          "series",
+          "number",
+          "issue_date",
+          "issue_place"
+        ],
+        "properties": {
+          "passport_id": {
+            "type": "integer",
+            "example": 122010
+          },
+          "series": {
+            "type": "string",
+            "example": 2016
+          },
+          "number": {
+            "type": "string",
+            "example": 678901
+          },
+          "issue_date": {
+            "type": "string",
+            "format": "2024-04-01T15"
+          },
+          "issue_place": {
+            "type": "string",
+            "example": "ГУ МВД по Ивановской области"
+          }
+        }
+      },
+      "LoanApplication": {
+        "type": "object",
+        "required": [
+          "application_id",
+          "client_id",
+          "credit_amount",
+          "date_applied"
+        ],
+        "properties": {
+          "application_id": {
+            "type": "integer",
+            "example": 888888
+          },
+          "client_id": {
+            "type": "integer",
+            "example": 111000
+          },
+          "credit_amount": {
+            "type": "number",
+            "example": 2000000
+          },
+          "term": {
+            "type": "integer"
+          },
+          "date_applied": {
+            "type": "string",
+            "format": "2024-04-01T14:00:00.000Z"
+          }
+        }
+      },
+      "LoanDecision": {
+        "type": "object",
+        "required": [
+          "decision_id",
+          "applicatiom_id",
+          "success"
+        ],
+        "properties": {
+          "decision_id": {
+            "type": "integer",
+            "example": 786861
+          },
+          "application_id": {
+            "type": "integer",
+            "example": 888888
+          },
+          "success": {
+            "type": "boolean",
+            "example": false
+          },
+          "reason": {
+            "type": "string",
+            "example": "Низкий доход"
+          },
+          "full_amount": {
+            "type": "integer",
+            "example": 0
+          },
+          "rate": {
+            "type": "number",
+            "example": 0.15
+          },
+          "monthly_payment": {
+            "type": "number",
+            "example": 0
+          }
+        }
+      }
+    }
+  }
+}
