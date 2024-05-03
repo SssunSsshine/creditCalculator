@@ -76,4 +76,15 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     private List<LoanApplication> loanApplications;
+
+    public Client(String surname, String name, String patronymic, LocalDate birthDate, String gender, boolean isMarried, boolean hasKids, Integer dependencyAmount) {
+        this.surname = surname;
+        this.name = name;
+        this.patronymic = patronymic;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.isMarried = isMarried;
+        this.hasKids = hasKids;
+        this.dependencyAmount = dependencyAmount;
+    }
 }

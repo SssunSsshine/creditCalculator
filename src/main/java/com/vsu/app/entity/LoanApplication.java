@@ -41,4 +41,10 @@ public class LoanApplication {
     @Column (name = "date_applied")
     @NotNull
     private Timestamp dateApplied;
+
+    public LoanApplication(Client client, BigDecimal creditAmount, Integer term) {
+        this.client = client;
+        this.creditAmount = creditAmount;
+        this.term = term;
+    }
 }

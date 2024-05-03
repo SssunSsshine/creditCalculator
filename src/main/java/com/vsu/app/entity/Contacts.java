@@ -37,4 +37,11 @@ public class Contacts {
     @Column (name = "address")
     @NotBlank(message = "Address is mandatory")
     private String address;
+
+    public Contacts(String email, String phoneNumber, String address)
+    {
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
 }
