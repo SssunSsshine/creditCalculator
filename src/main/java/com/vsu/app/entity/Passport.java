@@ -3,6 +3,7 @@ package com.vsu.app.entity;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -41,4 +42,11 @@ public class Passport {
     @Column(name = "issue_place")
     @NotNull
     private String issuePlace;
+
+    public Passport(String series, String number, LocalDate issueDate,String issuePlace) {
+        this.series = series;
+        this.number = number;
+        this.issueDate = issueDate;
+        this.issuePlace = issuePlace;
+    }
 }

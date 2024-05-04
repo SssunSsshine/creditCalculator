@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -40,4 +41,10 @@ public class Work {
     @Column(name = "salary")
     @NotNull
     private BigDecimal salary;
+
+    public Work(Boolean isWorking, Integer totalSeniority, BigDecimal salary) {
+        this.isWorking = isWorking;
+        this.totalSeniority = totalSeniority;
+        this.salary = salary;
+    }
 }
