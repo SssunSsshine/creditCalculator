@@ -46,4 +46,8 @@ public class LoanDecision {
     @Column(name = "monthly_payment")
     private BigDecimal monthlyPayment;
 
+    public LoanDecision(LoanApplication loanApplication, Boolean success) {
+        this.loanApplication = loanApplication;
+        this.success = success;
+    }
 }
